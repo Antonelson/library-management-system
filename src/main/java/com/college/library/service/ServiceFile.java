@@ -16,10 +16,9 @@ public class ServiceFile {
     @Autowired
     RepositoryFile rf;
 
-    public String forInsert(Library l)
+    public void forInsert(Library l)
     {
         rf.save(l);
-        return "done";
     }
 
     public Library getIdr(int id)
@@ -43,10 +42,9 @@ public class ServiceFile {
         return rf.findAll();
     }
 
-    public String deleteRow(int id)
+    public void deleteRow(int id)
     {
         rf.deleteById(id);
-        return "DELETION DONE";
     }
 
     //save update the existing row if it is not create

@@ -13,15 +13,16 @@ import java.util.Date;
 @Component
 public class JwtUtil {
     private final String Secret="anto the batman and spiderman but nobody knew this secret same as this secret";
-    private final long exp=1000*60;
+    private final long exp=1000*60*20;
     private final Key secretKey= Keys.hmacShaKeyFor(Secret.getBytes(StandardCharsets.UTF_8));
     public String generateToken(String email){
         return Jwts.builder()
-                .setSubject(email)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis()+exp))
-                .signWith(secretKey, SignatureAlgorithm.HS256)
+                .signWith(secretKey,SignatureAlgorithm.HS256)
+                .setSubject(email)
                 .compact();
+
     }
 
     public String extractEmail(String token){

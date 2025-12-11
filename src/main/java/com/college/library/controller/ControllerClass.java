@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 
 //Controller Class (Presentation Layer)
@@ -22,9 +23,13 @@ public class ControllerClass {
 
     //For Inserting
     @PostMapping("/create")
-    String create(@RequestBody Library l)
+    ResponseEntity<Map> create(@RequestBody Library l)
     {
-        return s1.forInsert(l);
+        s1.forInsert(l);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(Map.of("message", "Successfully Created"));
+
     }
 
     //For Getting result by id using get reference function
@@ -36,15 +41,15 @@ public class ControllerClass {
 
     //getting result by id using find function
     @GetMapping("/get/{id}")
-    ResponseEntity<Library> geti(@PathVariable int id)
+    ResponseEntity<?> geti(@PathVariable int id)
     {
         try{
             Library l= s1.getIdf(id);
-            return new ResponseEntity<>(l,HttpStatus.FOUND);
+            return new ResponseEntity<>(l,HttpStatus.OK);
         }
         catch(RuntimeException e)
         {
-            return new ResponseEntity<>((HttpHeaders) null,HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>( "user not found ",HttpStatus.NOT_FOUND);
         }
     }
 
@@ -52,7 +57,7 @@ public class ControllerClass {
     @GetMapping("/get")
     ResponseEntity<List<Library>> geta()
     {
-        return new ResponseEntity<>(s1.getAll(),HttpStatus.FOUND);
+        return new ResponseEntity<>(s1.getAll(),HttpStatus.OK);
     }
 
     //get all with Pageination
@@ -61,14 +66,15 @@ public class ControllerClass {
     @GetMapping("/page")
     ResponseEntity<Page<Library>> allByPage(@RequestParam int p,@RequestParam int s)
     {
-        return new ResponseEntity<>(s1.getPage(p,s),HttpStatus.FOUND);
+        return new ResponseEntity<>(s1.getPage(p,s),HttpStatus.OK);
     }
 
     //delete by id
     @DeleteMapping("/delete")
-    String delete(@RequestParam int id)
+    ResponseEntity<Map> delete(@RequestParam int id)
     {
-        return s1.deleteRow(id);
+        s1.deleteRow(id);
+        return ResponseEntity.ok(Map.of("message", "Successfully Deleted"));
     }
 
 //    update by id
@@ -77,6 +83,4 @@ public class ControllerClass {
     {
         return new ResponseEntity<>(s1.update(rb),HttpStatus.ACCEPTED);
     }
-
-
 }
