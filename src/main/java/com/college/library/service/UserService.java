@@ -15,10 +15,4 @@ public class UserService {
     {
         return ur.save(l);
     }
-    
-    public Userd getIdf(int id)
-    {
-        return ur.findById(id).orElseThrow(()->new RuntimeException("NOT FOUND "));
-    }
-    
 }

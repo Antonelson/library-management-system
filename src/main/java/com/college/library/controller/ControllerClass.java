@@ -21,7 +21,7 @@ public class ControllerClass {
     @Autowired
     ServiceFile s1;
 
-    //For Inserting
+    //For Inserting(create)
     @PostMapping("/create")
     ResponseEntity<Map> create(@RequestBody Library l)
     {
@@ -30,13 +30,6 @@ public class ControllerClass {
                 .status(HttpStatus.CREATED)
                 .body(Map.of("message", "Successfully Created"));
 
-    }
-
-    //For Getting result by id using get reference function
-    @GetMapping("/getr/{id}")
-    ResponseEntity<Library> getir(@PathVariable int id)
-    {
-            return new ResponseEntity<>(s1.getIdr(id),HttpStatus.FOUND);
     }
 
     //getting result by id using find function
@@ -52,7 +45,6 @@ public class ControllerClass {
             return new ResponseEntity<>( "user not found ",HttpStatus.NOT_FOUND);
         }
     }
-
     //get all
     @GetMapping("/get")
     ResponseEntity<List<Library>> geta()
@@ -60,35 +52,17 @@ public class ControllerClass {
         return new ResponseEntity<>(s1.getAll(),HttpStatus.OK);
     }
 
-    //get all with Pageination
-
-    //For page we need to give the number of the page and size of each page(number of rows)
-    @GetMapping("/page")
-    ResponseEntity<Page<Library>> allByPage(@RequestParam int p,@RequestParam int s)
-    {
-        return new ResponseEntity<>(s1.getPage(p,s),HttpStatus.OK);
-    }
-
-    //delete by id
+    //delete by id(deletion)
     @DeleteMapping("/delete")
     ResponseEntity<Map> delete(@RequestParam int id)
     {
         s1.deleteRow(id);
         return ResponseEntity.ok(Map.of("message", "Successfully Deleted"));
     }
-
-//    update by id
+//    update by id(updation)
     @PutMapping("/update")
     ResponseEntity<Library> update(@RequestBody Library rb)
     {
         return new ResponseEntity<>(s1.update(rb),HttpStatus.ACCEPTED);
     }
-
-    @GetMapping("/sizeu")
-    ResponseEntity<Long> sizeOfThe()
-    {
-        long size= s1.getSizeu();
-        return new ResponseEntity<>(size,HttpStatus.OK);
-    }
-
 }
