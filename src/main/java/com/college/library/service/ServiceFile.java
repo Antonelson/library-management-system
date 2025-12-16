@@ -53,4 +53,9 @@ public class ServiceFile {
         return rf.save(l);
     }
 
+    public long getSizeu()
+    {
+        return rf.returnSize();
+    }
+
 }

@@ -83,4 +83,12 @@ public class ControllerClass {
     {
         return new ResponseEntity<>(s1.update(rb),HttpStatus.ACCEPTED);
     }
+
+    @GetMapping("/sizeu")
+    ResponseEntity<Long> sizeOfThe()
+    {
+        long size= s1.getSizeu();
+        return new ResponseEntity<>(size,HttpStatus.OK);
+    }
+
 }

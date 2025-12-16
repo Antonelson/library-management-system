@@ -20,7 +20,6 @@ import java.util.Map;
 public class AuthController {
 
     private final UserRepo ur;
-
     private final UserService us;
     private final PasswordEncoder ps;
     private final JwtUtil jwtutil;
