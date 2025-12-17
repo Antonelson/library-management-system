@@ -32,9 +32,9 @@ public class ServiceFile {
     }
 
     //delete single rows
-    public void deleteRow(int id)
+    public void deleteRow(Library lib)
     {
-        rf.deleteById(id);
+         rf.delete(lib);
     }
     //save update the existing row if it is not create
     public Library update(Library l)

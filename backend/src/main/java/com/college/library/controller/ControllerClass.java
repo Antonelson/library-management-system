@@ -2,6 +2,7 @@ package com.college.library.controller;
 
 import com.college.library.service.ServiceFile;
 import com.college.library.entity.Library;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class ControllerClass {
 
     //For Inserting(create)
     @PostMapping("/create")
-    ResponseEntity<Map> create(@RequestBody Library l)
+    ResponseEntity<Map> create(@Valid @RequestBody Library l)
     {
         s1.forInsert(l);
         return ResponseEntity
@@ -52,10 +53,19 @@ public class ControllerClass {
 
     //delete by id(deletion)
     @DeleteMapping("/delete")
-    ResponseEntity<Map> delete(@RequestParam int id)
+    ResponseEntity<String> delete(@RequestParam int id)
     {
-        s1.deleteRow(id);
-        return ResponseEntity.ok(Map.of("message", "Successfully Deleted"));
+        Library l1;
+        ResponseEntity<String> re;
+        try{
+            l1=s1.getIdf(id);
+            re=new ResponseEntity<>("deleted",HttpStatus.OK);
+        }
+        catch(RuntimeException e)
+        {
+            re=new ResponseEntity<>("NOTFOUND",HttpStatus.NOT_FOUND);
+        }
+        return re;
     }
 //    update by id(updation)
     @PutMapping("/update")
