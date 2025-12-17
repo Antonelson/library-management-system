@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
-    private final String Secret="anto the batman and spiderman but nobody knew this secret same as this secret";
+    private final String Secret="Change here with ur secretKey its used for sigining the token";
     private final long exp=1000*60*20;
     private final Key secretKey= Keys.hmacShaKeyFor(Secret.getBytes(StandardCharsets.UTF_8));
     public String generateToken(String email){
