@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <script src="../Scripts/register.js"></script>
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #ffe7c1, #fff9d0);
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        width: 320px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        text-align: center;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #f8c146;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        margin: 12px 0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #f8c146;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #d9a234;
+      }
+
+      a {
+        display: block;
+        margin-top: 15px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #f8c146;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Register</h2>
+
+     
+      <input id="email" type="email" placeholder="Email" />
+      <input id="password" type="password" placeholder="Password" />
+
+      <button onclick="registerUser()">Register</button>
+
+      
+
+      <a href="login.html">Already have an account? Login</a>
+      <a href="../index.html">← Back to Home</a>
+    </div>
+  </body>
+</html>

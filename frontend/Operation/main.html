@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+    <script src="../Scripts/all.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+      }
+      body {
+        background: linear-gradient(135deg, #ffe7c1, #fff9d0);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        height: 100vh;
+      }
+      .container {
+        text-align: center;
+        width: 600px;
+        height: 250px;
+        padding: 40px 60px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      }
+      button {
+        width: 200px;
+        padding: 12px 0;
+        margin: 12px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      class[button~=".in"] {
+        background-color: #3b74d7;
+        color: white;
+      }
+      h2 {
+        margin-bottom: 30px;
+        color: #3b74d7;
+      }
+      .in {
+        background-color: #3b74d7;
+        color: white;
+      }
+      .in:hover {
+        background-color: #2c59a8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>SELECT ONE OF THE OPERATION</h2>
+      <button class="in postc" onclick="location.href='postdetails.html'">
+        Add Book
+      </button>
+      <button class="in getc" onclick="location.href='getdetails.html'">Get Books</button>
+
+      <button class="in removec" onclick="location.href='deletedetails.html'">
+        Remove Book
+      </button>
+      <button class="in update" onclick="location.href='updatedetails.html'">
+        Update Book
+      </button>
+    </div>
+  </body>
+</html>
+<!-- <button class="in getc" onclick="location.href='getdetails.html'"></button> -->
+  

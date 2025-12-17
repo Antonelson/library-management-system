@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Demo API</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FFE7C1, #FFF9D0);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px 60px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #3B74D7;
+        }
+
+        button {
+            width: 200px;
+            padding: 12px 0;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            
+        }
+
+        .login-btn {
+            background-color: #3B74D7;
+            color: white;
+        }
+
+        .login-btn:hover {
+            background-color: #2C59A8;
+        }
+
+        .register-btn {
+            background-color: #F8C146;
+            color: white;
+        }
+
+        .register-btn:hover {
+            background-color: #D9A234;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to the Library Demo API</h1>
+
+        <button class="login-btn" onclick="location.href='Auth/login.html'">
+            LOGIN
+        </button><br>
+
+        <button class="register-btn" onclick="location.href='Auth/register.html'">
+            REGISTER
+        </button>
+    </div>
+
+</body>
+</html>

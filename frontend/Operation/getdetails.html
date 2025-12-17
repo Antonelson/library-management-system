@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #FFE7C1, #FFF9D0);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px 60px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      min-width: 300px;
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      color: #3B74D7;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0 20px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #3B74D7;
+    }
+
+    button {
+      width: 220px;
+      padding: 12px 0;
+      margin: 8px 0;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .login-btn {
+      background-color: #3B74D7;
+      color: white;
+    }
+
+    .login-btn:hover {
+      background-color: #2C59A8;
+    }
+
+    .register-btn {
+      background-color: #F8C146;
+      color: white;
+    }
+
+    .register-btn:hover {
+      background-color: #D9A234;
+    }
+  </style>
+
+  <script>
+    function store() {
+      const id = document.getElementById("id1").value;
+      console.log(id);
+      if (id=="") {
+         alert("ENTER THE VALID NUMBER");
+         return;
+      }
+      localStorage.setItem("id", id);
+      window.location.href = "show1.html";
+    }
+  </script>
+
+</head>
+<body>
+
+  <div class="container">
+    <h1>Library Panel</h1>
+
+    <button class="login-btn" onclick="location.href='show.html'">
+      Get All Books
+    </button>
+
+    <br>
+
+    <input type="number" id="id1" placeholder="Enter Book ID" >
+
+    <button class="register-btn" onclick="store()">
+      Get By ID
+    </button>
+  </div>
+
+</body>
+</html>
